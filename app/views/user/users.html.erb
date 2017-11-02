@@ -1,0 +1,28 @@
+<h1>User#users</h1>
+<p>Find me in app/views/user/users.html.erb</p>
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>All Users</h1>
+
+<table border = "1">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |u| %>
+      <tr>
+        <td><%= u.username %></td>
+        <td><%= u.email %></td>
+        <td><%= u.password %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
