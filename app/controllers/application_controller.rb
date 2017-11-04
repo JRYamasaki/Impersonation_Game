@@ -13,6 +13,17 @@ class ApplicationController < ActionController::Base
 			
 		end
 	end
+
+
+	
+	def verify_admin
+		admin_emails = ["jyamasak@sfu.ca", "mccline@sfu.ca", "rgodard@sfu.ca", "selfeki@sfu.ca"]
+		current_user = User.where(:id => session[:user_id]).first
+		if !admin_emails.include? current_user.email
+			flash.notice = "You do not have access rights to the Admin Page"
+			redirect_to('/mainpage/mainpage')
+		end
+	end
 end
 
 

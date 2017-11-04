@@ -13,12 +13,11 @@ class AccessController < ApplicationController
 	  		existing_user = User.where(:username => params[:username]).first
 	  		if existing_user
 	  			verified_password =  params[:password] == existing_user[:password]
-	  			flash.notice = "Credentials verified"
 	  		end
 	  	end
 	  	if verified_password
 	  		session[:user_id] = existing_user.id
-	  		flash.notice = "Logged in succesfully"
+	  		flash.now.notice = "Logged in succesfully"
 	  		redirect_to('/mainpage/mainpage')
 	  		
 	  	else

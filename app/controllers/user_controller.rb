@@ -7,7 +7,7 @@ class UserController < ApplicationController
   # end
 
   skip_before_action :verify_login, :only => [:new, :create]
-
+  before_action :verify_admin, :only => [:users]
   def users
     @users = User.all
   end
