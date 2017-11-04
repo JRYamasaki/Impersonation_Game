@@ -4,3 +4,56 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.navbar {
+	background-color: #2B303A;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.navbar-brand {
+	color: #F2F3F2;
+}
+
+ul li a {
+	color: #F2F3F2; 
+}
+
+.row.content {
+	height: 500px;
+}
+
+.sidebar {
+	background-color: #94C5CC;
+	height: 100%;
+}
+
+.mainArea {
+	background-color: #F2F3F2;
+	height: 100%;
+	min-height: 100%;
+  	display: flex;
+  	align-items: center;
+}
+
+.btn-primary {
+	background-color: #2B303A;
+	color: #F2F3F2;
+	border-color: #2B303A;
+	margin: 20px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+	background-color: #494e56;
+	color: #F2F3F2;
+	border-color: #2B303A;
+}
+
+footer {
+	background-color: #2B303A;
+	color: #F2F3F2;
+	padding: 15px;
+	height: 50px;
+}
