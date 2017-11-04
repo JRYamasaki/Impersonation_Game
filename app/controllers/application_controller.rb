@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
 
 	private
 	def verify_login
-		if session[:user_id] == nil
-			flash.notice = "You must log in first!"
+		if  session[:user_id] == nil
+			flash.notice = "Please Login"
 			redirect_to('/access/login')
 			
 		end

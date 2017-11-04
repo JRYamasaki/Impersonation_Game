@@ -13,12 +13,14 @@ class AccessController < ApplicationController
 	  		existing_user = User.where(:username => params[:username]).first
 	  		if existing_user
 	  			verified_password =  params[:password] == existing_user[:password]
+	  			flash.notice = "Credentials verified"
 	  		end
 	  	end
 	  	if verified_password
-	  		session[:userid] = existing_user.id
-	  		redirect_to('/mainpage/mainpage')
+	  		session[:user_id] = existing_user.id
 	  		flash.notice = "Logged in succesfully"
+	  		redirect_to('/mainpage/mainpage')
+	  		
 	  	else
 	  		flash.now.notice = "Incorrect username/password"
 	  		render('/access/login')	
@@ -26,7 +28,7 @@ class AccessController < ApplicationController
 	end
 
 	 def signup
-	 	redirect_to('/user/new') #  registration path not working , fix later
+	 	redirect_to('/user/new') 
 	 end
 
 
