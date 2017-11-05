@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'mainpage/mainpage'
 
+  get 'mainpage/adminmainpage'
 
   get '/user' => 'user#index'
 
