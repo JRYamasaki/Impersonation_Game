@@ -1,0 +1,19 @@
+<% provide(:title, 'User Login') %>
+<h1>User Login</h1>
+
+<p id="notice"><%= notice %></p>
+
+<div class="login">
+  <%= form_tag( access_attempt_login_path, :method => :post) do |f| %>
+
+  	<%= label_tag (:username) %>    
+  	<%= text_field_tag (:username) %> 
+  	<br>
+	<%= label_tag(:password) %> 
+	<%= password_field_tag (:password) %> 
+
+    <%= submit_tag "Login" %><br><br>
+    
+  <% end %>
+  Not Registered yet? <%= link_to("Signup", '/user/new') %>
+</div>

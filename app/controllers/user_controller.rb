@@ -1,10 +1,13 @@
 class UserController < ApplicationController
-  def login
-  end
+  # def login
+  # end
+  #  Sami: login is in a separate controller.
 
-  def registration
-  end
+  # def registration
+  # end
 
+  skip_before_action :verify_login, :only => [:new, :create]
+  before_action :verify_admin, :only => [:users]
   def users
     @users = User.all
   end
