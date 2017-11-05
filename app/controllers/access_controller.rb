@@ -18,7 +18,7 @@ class AccessController < ApplicationController
 	  	if verified_password
 	  		session[:user_id] = existing_user.id
 	  		flash.now.notice = "Logged in succesfully"
-	  		redirect_to('/mainpage/mainpage')
+	  		redirect_to('/users/')
 	  		
 	  	else
 	  		flash.now.notice = "Incorrect username/password"
