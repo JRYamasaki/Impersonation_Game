@@ -1,19 +1,23 @@
+<div class="notice-header">
 <% provide(:title, 'User Login') %>
 <h1>User Login</h1>
 
 <p id="notice"><%= notice %></p>
+</div>
 
-<div class="login">
+<div class="forming-out">
   <%= form_tag( access_attempt_login_path, :method => :post) do |f| %>
-
-  	<%= label_tag (:username) %>    
-  	<%= text_field_tag (:username) %> 
+  <br>
+  <br>
+  <div class="forming-in">
+  	<%= label_tag (:username) %>
+  	<%= text_field_tag (:username) %>
   	<br>
-	<%= label_tag(:password) %> 
-	<%= password_field_tag (:password) %> 
+    <%= label_tag(:password) %>
+	  <%= password_field_tag (:password) %>
+  </div>
+    <%= submit_tag "Login", :class => "btn btn-primary" %><br><br>
 
-    <%= submit_tag "Login" %><br><br>
-    
   <% end %>
-  Not Registered yet? <%= link_to("Signup", '/user/new') %>
+  Need an account? <%= link_to("Signup", '/user/new') %>
 </div>

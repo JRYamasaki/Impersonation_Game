@@ -1,24 +1,29 @@
-<% provide(:title, 'Create New Account') %>
-<h1>Create New Account</h1>
 
-<p id="notice"><%= notice %></p>
+<div class="notice-header">
+  <% provide(:title, 'Create New Account') %>
+  <h1>Create New Account</h1>
 
-<div class="signup">
+  <p id="notice"><%= notice %></p>
+</div>
+
+<div class="forming-out">
   <%= form_for(@user) do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-
-    <%= f.submit "Create my account" %>
+    <br>
+    <br>
+    <div class="forming-in">
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+      <br>
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+      <br>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <br>
+    <%= f.submit "Sign Up", :class => "btn btn-primary" %>
     <br><br>
-    <%= link_to("Back to Login page", access_login_path) %>
-    
-
-
   <% end %>
+  <br>
+  <%= link_to("Back to Login page", access_login_path) %>
 </div>
