@@ -1,5 +1,5 @@
-class AccessController < ApplicationController 
-  
+class AccessController < ApplicationController
+
 
 
 	skip_before_action :verify_login
@@ -18,16 +18,16 @@ class AccessController < ApplicationController
 	  	if verified_password
 	  		session[:user_id] = existing_user.id
 	  		flash.now.notice = "Logged in succesfully"
-	  		redirect_to('/users/')
-	  		
+	  		redirect_to('/mainpage/adminmainpage')
+
 	  	else
 	  		flash.now.notice = "Incorrect username/password"
-	  		render('/access/login')	
+	  		render('/access/login')
 	  	end
 	end
 
 	 def signup
-	 	redirect_to('/user/new') 
+	 	redirect_to('/user/new')
 	 end
 
 
@@ -35,7 +35,7 @@ class AccessController < ApplicationController
 	def logout
 		session[:user_id] = nil
 		flash.now.notice = "Logged out successfully"
-		redirect_to('/access/login')	
+		redirect_to('/access/login')
 	end
 
 end
