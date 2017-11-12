@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  
 
   root 'mainpage#mainpage'
   get 'mainpage/mainpage'
@@ -11,6 +10,8 @@ Rails.application.routes.draw do
   post '/users' => 'user#create'
 
   get '/users' => 'user#users'
+
+  post '/scores' => 'score#create'
 
   get 'user/new'
 
