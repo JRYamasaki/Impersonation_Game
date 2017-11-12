@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: MyString
+  wins: 1
+  correctGuess: 1
+  incorrectGuess: 1
+
+two:
+  username: MyString
+  wins: 1
+  correctGuess: 1
+  incorrectGuess: 1
