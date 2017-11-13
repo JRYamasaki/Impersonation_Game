@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'lobby/lobby'
+
   root 'mainpage#mainpage'
   get 'mainpage/mainpage'
 
