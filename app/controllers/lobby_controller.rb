@@ -8,7 +8,7 @@ class LobbyController < ApplicationController
   	@lobby = Lobby.new
   end
 
-def create
+  def create
     @lobby = current_user.chat_rooms.build(chat_room_params) #specify current user differently?
     if @lobby.save
       flash[:success] = 'Chat room added!'
@@ -16,6 +16,10 @@ def create
     else
       render 'new'
     end
+  end
+
+  def show
+    @lobby = Lobby.includes(:responses).find_by(id: params[:id]);
   end
 
   private
