@@ -1,16 +1,27 @@
 
 <div class="vertical-center">
-	<div id="waiting" class="jumbotron jumbotron-fluid">
+	<div id="waitingForPlayers" class="jumbotron jumbotron-fluid">
 		<div class="container">
 			<h1 class="display-3 text-center">Waiting for more players to join</h1>
 			<p class="lead text-center"> x / 4 players</p>
+		</div>
+	</div>
+
+	<div id="waitingForInput" class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1 class="display-3 text-center">Please enter a response</h1>
+			<div class="form-group">
+    			<input type="response" class="form-control" id="response" aria-describedby="userResponse">
+  			</div>
 		</div>
 	</div>
 </div>
 
 <script>
 	$(function() {
-		$("#waiting").delay(1000).slideUp(1500);
+		$("#waitingForInput").hide(0);
+		$("#waitingForPlayers").delay(1000).slideUp(1500);
+		$("#waitingForInput").delay(3000).slideToggle(1000);
 	});
 
 </script>
