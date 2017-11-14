@@ -1,6 +1,4 @@
 class LobbyController < ApplicationController
-  def lobby
-  end
 
   def index
   	@lobbies = Lobby.all

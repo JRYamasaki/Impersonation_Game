@@ -1,0 +1,10 @@
+<h1>Add lobby</h1>
+
+<%= form_for @lobby, url: lobby_new_path do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+  </div>
+
+  <%= f.submit "Create lobby", class: 'btn btn-primary' %>
+<% end %>

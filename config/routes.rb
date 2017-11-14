@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get 'lobby/lobby'
 
+  get 'lobby/new'
+
   root 'mainpage#mainpage'
   get 'mainpage/mainpage'
 
