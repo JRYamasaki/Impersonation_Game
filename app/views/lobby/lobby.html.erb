@@ -1,2 +1,16 @@
-<h1>Lobby#lobby</h1>
-<p>Find me in app/views/lobby/lobby.html.erb</p>
+
+<div class="vertical-center">
+	<div id="waiting" class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1 class="display-3 text-center">Waiting for more players to join</h1>
+			<p class="lead text-center"> x / 4 players</p>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(function() {
+		$("#waiting").delay(1000).slideUp(1500);
+	});
+
+</script>

@@ -1,3 +1,17 @@
 // Place all the styles related to the lobby controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
+
+.vertical-center {
+  position: relative;
+    height: 100vh;
+}
+
+.jumbotron {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
