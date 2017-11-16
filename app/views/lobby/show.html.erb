@@ -1,5 +1,15 @@
 <h1><%= @lobby.title %></h1>
 
-<div id="responses">
+<div id="responses" data-lobby-id="<%= @lobby.id %>">
   <%= render @lobby.responses %>
 </div>
+
+<%= form_for @response, url: '#' do |f| %>
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: 'form-control' %>
+    <small class="text-muted">From 2 to 1000 characters</small>
+  </div>
+
+  <%= f.submit "Post", class: 'btn btn-primary btn-lg' %>
+<% end %>

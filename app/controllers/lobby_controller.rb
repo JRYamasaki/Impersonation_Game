@@ -20,6 +20,7 @@ class LobbyController < ApplicationController
 
   def show
     @lobby = Lobby.includes(:responses).find_by(id: params[:id]);
+    @response = Response.new
   end
 
   private
