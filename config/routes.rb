@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   get 'lobby/new'
 
+  get 'lobby/show'
+
+  get 'lobby/index'
+
   root 'mainpage#mainpage'
   get 'mainpage/mainpage'
 
