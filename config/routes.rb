@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :lobbies, only: [:new, :create, :show, :index]
+
   get 'lobby/lobby'
 
   get 'lobby/new'
