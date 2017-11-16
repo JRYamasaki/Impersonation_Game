@@ -13,7 +13,7 @@ class ScoreController < ApplicationController
         format.html { }
         format.json { render :show, status: :created, location: @score }
       else
-        format.html { notice: 'Scores unable to create!' }
+        format.html { flash[:notice] = 'Scores unable to create!' }
         format.json { render json: @score.errors, status: :unprocessable_entity }
       end
     end
