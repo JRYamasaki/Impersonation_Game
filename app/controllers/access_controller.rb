@@ -1,7 +1,4 @@
 class AccessController < ApplicationController
-
-
-
 	skip_before_action :verify_login
 
   	def login
@@ -26,16 +23,13 @@ class AccessController < ApplicationController
 	  	end
 	end
 
-	 def signup
+	def signup
 	 	redirect_to('/user/new')
-	 end
-
-
+	end
 
 	def logout
 		session[:user_id] = nil
 		flash.now.notice = "Logged out successfully"
 		redirect_to('/access/login')
 	end
-
 end

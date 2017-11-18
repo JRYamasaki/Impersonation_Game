@@ -5,5 +5,4 @@ class MainpageControllerTest < ActionDispatch::IntegrationTest
     get mainpage_mainpage_url
     assert_response :success
   end
-
 end

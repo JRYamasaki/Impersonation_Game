@@ -1,9 +1,6 @@
 class ApplicationController < ActionController::Base
 	protect_from_forgery with: :exception
-
-
 	before_action :verify_login
-
 
 	private
 	def verify_login
@@ -14,8 +11,6 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
-
-
 	def verify_admin
 		admin_emails = ["jyamasak@sfu.ca", "mccline@sfu.ca", "rgodard@sfu.ca", "selfeki@sfu.ca"]
 		current_user = User.where(:id => session[:user_id]).first
@@ -25,6 +20,5 @@ class ApplicationController < ActionController::Base
 		end
 	end
 end
-
 
 # will include before_action :except => login, registration etc...

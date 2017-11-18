@@ -1,6 +1,5 @@
 class ScoreController < ApplicationController
 
-
   def new
     @score = Score.new
   end
@@ -18,6 +17,4 @@ class ScoreController < ApplicationController
       end
     end
   end
-
-
 end
