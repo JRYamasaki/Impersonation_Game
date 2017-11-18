@@ -5,5 +5,4 @@ class AccessControllerTest < ActionDispatch::IntegrationTest
     get access_login_url
     assert_response :success
   end
-
 end
