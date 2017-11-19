@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class LobbyControllerTest < ActionDispatch::IntegrationTest
-  test "should get lobby" do
+  test "should redirect to login" do
     get lobby_lobby_url
     assert_response :redirect
   end

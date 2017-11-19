@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class MainpageControllerTest < ActionDispatch::IntegrationTest
-  test "should get mainpage" do
+  test "should redirect to login" do
     get mainpage_mainpage_url
     assert_response :redirect
   end
