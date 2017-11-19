@@ -37,17 +37,17 @@ class ApplicationController < ActionController::Base
 	# # following are examples of how to use the Conversation API:
 
 	# Get a greet message from a conversation service.
-	puts response1 = manage.talk("user1", "")
-	# => {user: user1, status_code: 200, output: [\"What would you like me to do?\"]}
+	# puts response1 = manage.talk("user1", "") # 1st parameter is 
+	# # => {user: user1, status_code: 200, output: [\"What would you like me to do?\"]}
 
-	# Get a response to a user's input.
-	puts response2 = manage.talk("user1", "I would like you to ...")
-	#=> {user: user1, status_code: 200, output: [\"I help you ...\"]}
+	# # Get a response to a user's input.
+	# puts response2 = manage.talk("user1", "I would like you to ...")
+	# #=> {user: user1, status_code: 200, output: [\"I help you ...\"]}
 
-	# Check if the user exists
-	puts manage.has_key?("user1")
+	# # Check if the user exists
+	# puts manage.has_key?("user1")
 
-	# Delete the user
-	puts manage.delete("user1")
+	# # Delete the user
+	# puts manage.delete("user1")
 
 end
