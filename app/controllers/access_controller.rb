@@ -2,7 +2,7 @@ class AccessController < ApplicationController
 	skip_before_action :verify_login
 
   	def login
-  		@user = User.new
+  		# @user = User.new
  	end
 
   	def attempt_login
