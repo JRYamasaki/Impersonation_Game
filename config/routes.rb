@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   resources :lobbies, only: [:new, :create, :show, :index]
 
+  post '/lobby/new' => 'lobby#create'
+  get 'lobby' => 'lobby#index'
+
   mount ActionCable.server => '/cable'
 
   get 'lobby/lobby'

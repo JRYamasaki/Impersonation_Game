@@ -9,7 +9,8 @@ class LobbyController < ApplicationController
   end
 
   def create
-    @lobby = current_user.chat_rooms.build(chat_room_params) #specify current user differently?
+    @lobby = current_user.lobbies.build(lobby_params) #specify current user differently?
+    #@lobby = current_user.chat_rooms.build(chat_room_params) #specify current user differently?
     if @lobby.save
       flash[:success] = 'Chat room added!'
       redirect_to lobbies_path
