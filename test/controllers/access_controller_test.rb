@@ -15,4 +15,10 @@ class AccessControllerTest < ActionDispatch::IntegrationTest
   	post access_attempt_login_url, params:{"username" => "MyString", "password" => "MyString"}
   	assert_equal "Logged in succesfully", flash[:notice]
   end
+
+  test "should logout user" do
+    post access_attempt_login_url, params:{"username" => "MyString", "password" => "MyString"}
+    get access_logout_url
+    assert_equal "Logged out successfully", flash[:notice]
+  end
 end
