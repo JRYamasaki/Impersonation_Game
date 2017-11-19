@@ -11,3 +11,9 @@ two:
   password: MyString
   email: MyString
   adminbit: false
+
+three:
+  username: admin
+  password: admin
+  email: MyString
+  adminbit: true
