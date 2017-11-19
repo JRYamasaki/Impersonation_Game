@@ -9,11 +9,13 @@ class LobbyController < ApplicationController
   end
 
   def create
+    current_user = User.where(:id => session[:user_id]).first
     @lobby = current_user.lobbies.build(lobby_params) #specify current user differently?
+    #@lobby = Lobby.new(lobby_params)
     #@lobby = current_user.chat_rooms.build(chat_room_params) #specify current user differently?
     if @lobby.save
       flash[:success] = 'Chat room added!'
-      redirect_to lobbies_path
+      redirect_to '/lobby'
     else
       render 'new'
     end
