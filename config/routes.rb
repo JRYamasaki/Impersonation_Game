@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   post '/lobby/new' => 'lobby#create'
   get 'lobby' => 'lobby#index'
+  get 'lobby/show/:id' => 'lobby#show'
 
   mount ActionCable.server => '/cable'
 
