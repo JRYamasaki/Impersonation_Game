@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   get 'user/new'
 
-  get 'user/login'
+  # get 'user/login'
 
   get 'user/registration'
 
