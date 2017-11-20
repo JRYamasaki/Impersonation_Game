@@ -11,4 +11,9 @@ class UserControllerTest < ActionDispatch::IntegrationTest
   	get user_users_url
     assert_response :redirect
   end
+
+  test "create valid user" do
+  	user = User.new(username: 'test', password: 'test', email: 'test', adminbit: 'test');
+  	assert user.valid?
+  end
 end
