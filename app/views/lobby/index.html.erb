@@ -1,5 +1,22 @@
 <h1>All Lobbies</h1>
 
-<% @lobbies.each do |s| %>
-	<%=s.title %>
-<% end %>
+
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Lobby Name</th>
+			<th>Spots Left</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @lobbies.each do |s| %>
+		<tr>
+			<td><%= s.title %></td>
+			<td><%= s.spotsLeft %> / 4</td>
+			<td><div class="btn btn-primary btn-lg"><%= link_to "Join Lobby", controller: "lobby", action: "lobby", id: s.id  %></div></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
