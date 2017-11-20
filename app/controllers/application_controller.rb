@@ -19,10 +19,11 @@ class ApplicationController < ActionController::Base
 			redirect_to('/mainpage/mainpage')
 		end
 	end
-
+	
+	### alpha-netzilla Watson conversation wrapper
 	require 'watson/conversation'
 
-	manage = Watson::Conversation::ManageDialog.new(
+	agent0 = Watson::Conversation::ManageDialog.new(
 	  username: "selfeki@sfu.ca",
 	  password: "1mpersonationgam3",
 	  workspace_id: "9275ca7a-e96a-41b6-a607-cbc405d071c8",
@@ -31,11 +32,22 @@ class ApplicationController < ActionController::Base
 	  # OR
 	  # storage: 'redis://127.0.0.1:6379'  #means that you use exteranl database like redis(This gem currently supports redis only).
 	)
+        
+        agent1 = Watson::Conversation::ManageDialog.new(
+          username: "vaganune@reftoken.net",
+          password: "Astat@1379",
+          workspace_id: "1a5ff1af-bc7d-48e7-8207-3190f1729acd",
+          # Where to link the freely-selected user name with the conversation_id
+          storage: 'hash'  #means that you use Ruby hash. If you restart the app, the info will be disappeared.
+          # OR
+          # storage: 'redis://127.0.0.1:6379'  #means that you use exteranl database like redis(This gem currently supports redis only).
+        )
 
 	# # helpful documentation --> https://github.com/alpha-netzilla/watson-conversation
 
 	# # following are examples of how to use the Conversation API:
 
+        ### alpha-netzilla Chatbot responses and actions
 	# Get a greet message from a conversation service.
 	# puts response1 = manage.talk("user1", "") # 1st parameter is 
 	# # => {user: user1, status_code: 200, output: [\"What would you like me to do?\"]}
