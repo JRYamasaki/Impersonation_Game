@@ -1,0 +1,53 @@
+condition: (#colour)
+  ResponseK
+  
+Condition: (@shade:dark)
+  Response: Dark red is the best colour in the world, and anyone who disagrees is wrong.
+  
+Condition: (@hue:)
+  Response:
+  
+Condition: (@format:)
+  Response:
+  
+Condition: (@color_base:)
+  Response:
+
+Condition: (#geography)
+  Response:
+
+Conditions: (#actors)
+  Response:
+  
+Conditions: (#movies)
+  Response:
+  
+Conditions: (#food)
+  Response:
+
+Conditions: (#music)
+  Response:
+  
+Conditions: (#musical_artist)
+  Response:
+  
+Conditions: (#sports)
+  Response:
+  
+Conditions: (#cars)
+  Response:
+  
+Conditions: (#companies)
+  Response:
+  
+Conditions: (#universities)
+  Response:
+
+Conditions: (#clothes)
+  Response:
+  
+Conditions: (#video_games)
+  Response:
+  
+Conditions: (#tv)
+  Response:
