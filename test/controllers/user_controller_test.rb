@@ -16,4 +16,19 @@ class UserControllerTest < ActionDispatch::IntegrationTest
   	user = User.new(username: 'test', password: 'test', email: 'test', adminbit: 'test');
   	assert user.valid?
   end
+
+  test "create invalid user with no username" do
+  	user = User.new(username: '', password: 'test', email: 'test', adminbit: 'test');
+  	assert_not user.valid?
+  end
+
+  test "create invalid user with no password" do
+  	user = User.new(username: 'test', password: '', email: 'test', adminbit: 'test');
+  	assert_not user.valid?
+  end
+
+  test "create invalid user with no email" do
+  	user = User.new(username: 'test', password: 'test', email: '', adminbit: 'test');
+  	assert_not user.valid?
+  end
 end
