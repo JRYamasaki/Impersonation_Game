@@ -19,8 +19,21 @@ class ApplicationController < ActionController::Base
 			redirect_to('/mainpage/mainpage')
 		end
 	end
-	
-	### alpha-netzilla Watson conversation wrapper
+
+        ### IBM Watson Conversation Service Agent Warppers
+        #
+        # There are two different wrappers that can be used to access the IBM Watson Conversation Service API:
+        # (1) alpha-netzilla: GitHub Link - https://github.com/alpha-netzilla/watson-conversation
+        # (2) artemis: GitHub Link - https://github.com/icalialabs/artemis
+        #
+        # Both wrappers are configured below, so that if one does not work, we can easily switch to the other.
+        # Each Watson Conversation instance will be considered an "agent", which will access the 
+	###
+        # alpha-netzilla IBM Watson conversation wrapper
+        #
+        # Documentation link: https://github.com/alpha-netzilla/watson-conversation
+        #
+        #
 	require 'watson/conversation'
 
 	agent0 = Watson::Conversation::ManageDialog.new(
@@ -43,11 +56,16 @@ class ApplicationController < ActionController::Base
           # storage: 'redis://127.0.0.1:6379'  #means that you use exteranl database like redis(This gem currently supports redis only).
         )
 
-	# # helpful documentation --> https://github.com/alpha-netzilla/watson-conversation
+        ### artemis IBM Watson conversation service wrapper
 
-	# # following are examples of how to use the Conversation API:
 
-        ### alpha-netzilla Chatbot responses and actions
+        Chatbot responses and actions
+        #
+        # Until we determine what specific files will hold the agent responses we will place them here
+        #
+
+        # For a given game, the questions will most likely be generated from a databse.
+        # The easiest way to pass these questions to the watson conversation service therefore, we need to treat the question like a user-input question 
 	# Get a greet message from a conversation service.
 	# puts response1 = manage.talk("user1", "") # 1st parameter is 
 	# # => {user: user1, status_code: 200, output: [\"What would you like me to do?\"]}
