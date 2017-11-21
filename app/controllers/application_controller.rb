@@ -59,7 +59,7 @@ class ApplicationController < ActionController::Base
         ### artemis IBM Watson conversation service wrapper
 
 
-        Chatbot responses and actions
+        #Chatbot responses and actions
         #
         # Until we determine what specific files will hold the agent responses we will place them here
         #
