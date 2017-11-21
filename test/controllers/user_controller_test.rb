@@ -1,6 +1,14 @@
 require 'test_helper'
 
 class UserControllerTest < ActionDispatch::IntegrationTest
+  def setup
+  	@user = users(:one)
+  	@missingUsername = users(:missingUsername)
+  	@missingPassword = users(:missingPassword)
+  	@missingEmail = users(:missingEmail)
+  	@missingAdminBit = users(:missingAdminBit)
+  end
+
   test "should redirect to login" do
     get user_users_url
     assert_response :redirect
@@ -13,22 +21,22 @@ class UserControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "create valid user" do
-  	user = User.new(username: 'test', password: 'test', email: 'test', adminbit: 'test');
-  	assert user.valid?
+  	assert @user.valid?
   end
 
   test "create invalid user with no username" do
-  	user = User.new(username: '', password: 'test', email: 'test', adminbit: 'test');
-  	assert_not user.valid?
+  	assert_not @missingUsername.valid?
   end
 
   test "create invalid user with no password" do
-  	user = User.new(username: 'test', password: '', email: 'test', adminbit: 'test');
-  	assert_not user.valid?
+  	assert_not @missingPassword.valid?
+  end
+
+  test "create invalid user with no adminbit" do
+  	assert_not @missingAdminBit.valid?
   end
 
   test "create invalid user with no email" do
-  	user = User.new(username: 'test', password: 'test', email: '', adminbit: 'test');
-  	assert_not user.valid?
+  	assert_not @missingEmail.valid?
   end
 end

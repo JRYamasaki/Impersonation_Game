@@ -17,3 +17,33 @@ three:
   password: admin
   email: MyString
   adminbit: true
+
+validUser:
+  username: test
+  password: test
+  email: test
+  adminbit: true
+
+missingUsername:
+  username:
+  password: test
+  email: test
+  adminbit: true
+
+missingPassword:
+  username: test
+  password:
+  email: test
+  adminbit: true
+
+missingEmail:
+  username: test
+  password: test
+  email:
+  adminbit: true
+
+validUser:
+  username: test
+  password: test
+  email: test
+  adminbit: 
