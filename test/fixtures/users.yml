@@ -7,9 +7,9 @@ one:
   adminbit: false
 
 two:
-  username: MyString
-  password: MyString
-  email: MyString
+  username: MyString1
+  password: MyString1
+  email: MyString1
   adminbit: false
 
 three:
@@ -19,31 +19,25 @@ three:
   adminbit: true
 
 validUser:
-  username: test
-  password: test
-  email: test
+  username: 1
+  password: 2
+  email: 3
   adminbit: true
 
 missingUsername:
   username:
-  password: test
-  email: test
+  password: test1
+  email: test1
   adminbit: true
 
 missingPassword:
-  username: test
+  username: test2
   password:
-  email: test
+  email: test2
   adminbit: true
 
 missingEmail:
-  username: test
-  password: test
+  username: test3
+  password: test3
   email:
   adminbit: true
-
-validUser:
-  username: test
-  password: test
-  email: test
-  adminbit: 

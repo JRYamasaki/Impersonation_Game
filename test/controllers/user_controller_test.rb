@@ -2,11 +2,10 @@ require 'test_helper'
 
 class UserControllerTest < ActionDispatch::IntegrationTest
   def setup
-  	@user = users(:one)
+  	@user = users(:validUser)
   	@missingUsername = users(:missingUsername)
   	@missingPassword = users(:missingPassword)
   	@missingEmail = users(:missingEmail)
-  	@missingAdminBit = users(:missingAdminBit)
   end
 
   test "should redirect to login" do
@@ -30,10 +29,6 @@ class UserControllerTest < ActionDispatch::IntegrationTest
 
   test "create invalid user with no password" do
   	assert_not @missingPassword.valid?
-  end
-
-  test "create invalid user with no adminbit" do
-  	assert_not @missingAdminBit.valid?
   end
 
   test "create invalid user with no email" do
