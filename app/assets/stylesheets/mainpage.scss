@@ -5,6 +5,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+p {
+	margin: 0;
+}
+
+.alert {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
 .navbar {
 	background-color: #2B303A;
     margin-bottom: 0;
