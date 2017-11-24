@@ -1,10 +1,4 @@
-
-<div class="notice-header">
-  <% provide(:title, 'Create New Account') %>
-  <h1>Create New Account</h1>
-
-  <p id="notice"><%= notice %></p>
-</div>
+<div class="gameLogo"><h1 class="elegantshadow">Impersonation Game</h1></div>
 
 <div class="forming-out">
   <%= form_for(@user) do |f| %>
@@ -20,10 +14,13 @@
       <%= f.label :password %>
       <%= f.password_field :password %>
     </div>
-    <br>
     <%= f.submit "Sign Up", :class => "btn btn-primary" %>
-    <br><br>
+    <br>
   <% end %>
-  <br>
   <%= link_to("Back to Login page", access_login_path) %>
+
+  <div class="notice-header">
+    <% provide(:title, 'Create New Account') %>
+    <p id="notice"><%= notice %></p>
+  </div>
 </div>

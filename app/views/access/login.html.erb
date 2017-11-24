@@ -1,11 +1,7 @@
-<div class="notice-header">
-<% provide(:title, 'User Login') %>
-<h1>User Login</h1>
-
-<p id="notice"><%= notice %></p>
-</div>
+<div class="gameLogo"><h1 class="elegantshadow">Impersonation Game</h1></div>
 
 <div class="forming-out">
+
   <%= form_tag( access_attempt_login_path, :method => :post) do |f| %>
   <br>
   <br>
@@ -16,8 +12,12 @@
     <%= label_tag(:password) %>
 	  <%= password_field_tag (:password) %>
   </div>
-    <%= submit_tag "Login", :class => "btn btn-primary" %><br><br>
-
+    <%= submit_tag "Login", :class => "btn btn-primary" %><br>
+    Need an account? <%= link_to("Signup", '/user/new') %>
   <% end %>
-  Need an account? <%= link_to("Signup", '/user/new') %>
+
+  <div class="notice-header">
+    <% provide(:title, 'User Login') %>
+    <p id="notice"><%= notice %></p>
+  </div>
 </div>
