@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  spotsLeft: 1
+  title: test
+  spotsLeft: 3
   user: one
 
 two:

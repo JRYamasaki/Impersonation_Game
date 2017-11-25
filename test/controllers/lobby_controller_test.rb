@@ -18,4 +18,15 @@ class LobbyControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "create lobby" do
+    user = User.new(:username => "t", :password => "t", :email => "t", adminbit: false)
+    post lobby_new_url, params:{:title => "testLobby", :spotsLeft => 0, :user => user}
+    lobby = Lobby.new(:title => "testLobby", :spotsLeft => 0, :user => user)
+    lobby.save
+    lobby = Lobby.pluck(:title)
+    assert_not_nil lobby
+    assert_equal "testLobby", lobby[2]
+  end  
+
+
 end
