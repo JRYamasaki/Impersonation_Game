@@ -22,12 +22,14 @@ class LobbyController < ApplicationController
   end
 
   def show
-    @lobby = Lobby.includes(:responses).find_by(id: params[:id]);
+    # @lobby = Lobby.includes(:responses).find_by(id: params[:id]);
+    @lobby = Lobby.find_by(id: params[:id]);
     @response = Response.new
   end
 
   def lobby
-    @lobby = Lobby.includes(:responses).find_by(id: params[:id]);
+    # @lobby = Lobby.includes(:responses).find_by(id: params[:id]);
+    @lobby = Lobby.find_by(id: params[:id]);
     @response = Response.new
   end
 

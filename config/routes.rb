@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :responses
+
   # resources :lobbies, only: [:new, :create, :show, :index]
 
    #post '/lobby/create' => 'lobby#create'

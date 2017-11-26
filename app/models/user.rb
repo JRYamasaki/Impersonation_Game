@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_one :score
   has_many :lobbies, dependent: :destroy
+  has_one :lobby, through: :responses
   has_many :responses, dependent: :destroy
 
   validates :username, uniqueness: true, presence: true

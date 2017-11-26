@@ -11,7 +11,11 @@
 		<div class="container">
 			<h1 class="display-3 text-center">Please enter a response</h1>
 			<div class="form-group">
-    			<input type="response" class="form-control" id="response" aria-describedby="userResponse">
+				<div id="response" aria-describedby="userResponse">
+					<%= render partial: 'responses/response_form', locals: {response: @response, lobby: @lobby}%> 
+				</div>
+			</div>
+    			<!-- input type="response" class="form-control" id="response" aria-describedby="userResponse"> -->
   			</div>
 		</div>
 	</div>
@@ -25,3 +29,7 @@
 	});
 
 </script>
+
+
+
+
