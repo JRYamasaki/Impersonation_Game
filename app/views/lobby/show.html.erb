@@ -4,7 +4,7 @@
   <%= render @lobby.responses %>
 </div>
 
-<%= form_for @response, url: '#' do |f| %>
+<%= form_for @response, url: '/responses/create' method: => :post  do |f| %>
   <div class="form-group">
     <%= f.label :body %>
     <%= f.text_area :body, class: 'form-control' %>

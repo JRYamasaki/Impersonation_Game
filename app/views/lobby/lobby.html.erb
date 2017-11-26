@@ -10,13 +10,19 @@
 	<div id="waitingForInput" class="jumbotron jumbotron-fluid">
 		<div class="container">
 			<h1 class="display-3 text-center">Please enter a response</h1>
-
-			<%= render partial: 'responses/response', collection: @lobby.responses%>
-			<!-- above does not render  -->
-
 			<div class="form-group">
+			<!-- above does not render  -->
 				<div id="response" aria-describedby="userResponse">
-					<%= render partial: 'responses/response_form', locals: {response: @response, lobby: @lobby}%> 
+
+					<!-- Successfully submitted responses: -->
+					<%= render partial: '/responses/responses', collection: @lobby.responses || "There are no responses"%>
+
+					<!-- Response form -->
+					<%= render partial: '/responses/response_form', locals: {response: @response, lobby: @lobby}%> 
+
+
+					
+
 				</div>
 			</div>
     			<!-- input type="response" class="form-control" id="response" aria-describedby="userResponse"> -->

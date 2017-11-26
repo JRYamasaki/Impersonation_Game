@@ -15,7 +15,7 @@ class ResponsesController < ApplicationController
 			head :ok
 		else
 			render 'lobby/show'
-			# should instead redirect to a controller#method which handles the issue better
+			# should instead redirect to a controller#method which better handles the issue
 		end
 	end
 
