@@ -34,27 +34,27 @@ class ApplicationController < ActionController::Base
         # Documentation link: https://github.com/alpha-netzilla/watson-conversation
         #
         #
-	require 'watson/conversation'
+	# require 'watson/conversation'
 
-	agent0 = Watson::Conversation::ManageDialog.new(
-	  username: "selfeki@sfu.ca",
-	  password: "1mpersonationgam3",
-	  workspace_id: "9275ca7a-e96a-41b6-a607-cbc405d071c8",
-	  # Where to link the freely-selected user name with the conversation_id
-	  storage: 'hash'  #means that you use Ruby hash. If you restart the app, the info will disappear.
-	  # OR
-	  # storage: 'redis://127.0.0.1:6379'  #means that you use exteranl database like redis(This gem currently supports redis only).
-	)
+	# agent0 = Watson::Conversation::ManageDialog.new(
+	#   username: "selfeki@sfu.ca",
+	#   password: "1mpersonationgam3",
+	#   workspace_id: "9275ca7a-e96a-41b6-a607-cbc405d071c8",
+	#   # Where to link the freely-selected user name with the conversation_id
+	#   storage: 'hash'  #means that you use Ruby hash. If you restart the app, the info will disappear.
+	#   # OR
+	#   # storage: 'redis://127.0.0.1:6379'  #means that you use exteranl database like redis(This gem currently supports redis only).
+	# )
         
-        agent1 = Watson::Conversation::ManageDialog.new(
-          username: "vaganune@reftoken.net",
-          password: "Astat@1379",
-          workspace_id: "1a5ff1af-bc7d-48e7-8207-3190f1729acd",
-          # Where to link the freely-selected user name with the conversation_id
-          storage: 'hash'  #means that you use Ruby hash. If you restart the app, the info will be disappeared.
-          # OR
-          # storage: 'redis://127.0.0.1:6379'  #means that you use exteranl database like redis(This gem currently supports redis only).
-        )
+ #        agent1 = Watson::Conversation::ManageDialog.new(
+ #          username: "vaganune@reftoken.net",
+ #          password: "Astat@1379",
+ #          workspace_id: "1a5ff1af-bc7d-48e7-8207-3190f1729acd",
+ #          # Where to link the freely-selected user name with the conversation_id
+ #          storage: 'hash'  #means that you use Ruby hash. If you restart the app, the info will be disappeared.
+ #          # OR
+ #          # storage: 'redis://127.0.0.1:6379'  #means that you use exteranl database like redis(This gem currently supports redis only).
+ #        )
 
         ### artemis IBM Watson conversation service wrapper
 
