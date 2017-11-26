@@ -10,6 +10,10 @@
 	<div id="waitingForInput" class="jumbotron jumbotron-fluid">
 		<div class="container">
 			<h1 class="display-3 text-center">Please enter a response</h1>
+
+			<%= render partial: 'responses/response', collection: @lobby.responses%>
+			<!-- above does not render  -->
+
 			<div class="form-group">
 				<div id="response" aria-describedby="userResponse">
 					<%= render partial: 'responses/response_form', locals: {response: @response, lobby: @lobby}%> 

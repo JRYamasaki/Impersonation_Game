@@ -7,4 +7,5 @@ test:
 production:
   adapter: redis
   url: redis://localhost:6379/1
+  # url: redis://localhost:3000
   channel_prefix: ImpersonationGame_production

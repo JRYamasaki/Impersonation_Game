@@ -33,7 +33,12 @@ class ApplicationController < ActionController::Base
         #
         # Documentation link: https://github.com/alpha-netzilla/watson-conversation
         #
-        #
+    
+
+
+    # commented out for faster deployment
+
+# => UNCOMMENT START
 	# require 'watson/conversation'
 
 	# agent0 = Watson::Conversation::ManageDialog.new(
@@ -55,6 +60,10 @@ class ApplicationController < ActionController::Base
  #          # OR
  #          # storage: 'redis://127.0.0.1:6379'  #means that you use exteranl database like redis(This gem currently supports redis only).
  #        )
+# => UNCOMMENT END
+
+
+
 
         ### artemis IBM Watson conversation service wrapper
 
