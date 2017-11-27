@@ -14,7 +14,7 @@ class ResponsesController < ApplicationController
 			ActionCable.server.broadcast 'responses', response: response.body, user: response.user.username
 			head :ok
 		else
-			render 'lobby/show'
+			render 'lobby/lobby'
 			# should instead redirect to a controller#method which better handles the issue
 		end
 	end
@@ -22,7 +22,7 @@ class ResponsesController < ApplicationController
 	private
 
 		def response_params
-			params.require(:response).permit(:content, :chatroom_id, :lobby_id)
+			params.require(:response).permit(:body, :chatroom_id, :lobby_id, :user, :lobby)
 		end
 
 end

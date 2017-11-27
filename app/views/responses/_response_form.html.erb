@@ -3,7 +3,7 @@
 
 <%= form_for response, remote: true, authenticity_token: true do |f| %>
   <%= f.label :your_response %>:
-  <%= text_area_tag(:q)%>
+  <%= f.text_area :body, class: "form-control", data: {textarea: "response"}%>
 
   <%= f.hidden_field :lobby_id, value: lobby.id %>
   <%= f.submit "submit", data: {send: "response"} %>

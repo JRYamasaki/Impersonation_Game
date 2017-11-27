@@ -15,13 +15,13 @@
 				<div id="response" aria-describedby="userResponse">
 
 					<!-- Successfully submitted responses: -->
-					<%= render partial: '/responses/responses', collection: @lobby.responses || "There are no responses"%>
+					<%= render partial: 'responses/responses', collection: @lobby.responses || "There are no responses"%>
 
 					<!-- Response form -->
-					<%= render partial: '/responses/response_form', locals: {response: @response, lobby: @lobby}%> 
+					<%= render partial: '/responses/response_form', locals: {response: @response, lobby: @lobby}%>
 
 
-					
+
 
 				</div>
 			</div>
@@ -39,7 +39,3 @@
 	});
 
 </script>
-
-
-
-
