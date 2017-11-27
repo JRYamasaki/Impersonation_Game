@@ -1,6 +1,6 @@
 
 
-App.responses = App.cable.subscriptions.create('ResponsesChannel', { 
+App.responses = App.cable.subscriptions.create('ResponsesChannel', {
 	received: function(data) {
 		$("#responses").removeClass('hidden')
 		return $('#responses').append(this.renderResponse(data));

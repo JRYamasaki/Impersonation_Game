@@ -1,4 +1,4 @@
-class LobbyChannel < ApplicationCable::Channel
+class LobbiesChannel < ApplicationCable::Channel
   def subscribed
     stream_from "lobbies_#{params['lobby_id']}_channel"
   end

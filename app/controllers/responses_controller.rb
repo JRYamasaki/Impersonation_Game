@@ -1,5 +1,5 @@
 class ResponsesController < ApplicationController
-  
+
 
   	def new
   		@response = Response.new
@@ -22,7 +22,7 @@ class ResponsesController < ApplicationController
 	private
 
 		def response_params
-			params.require(:response).permit(:content, :chatroom_id)
+			params.require(:response).permit(:content, :chatroom_id, :lobby_id)
 		end
-	
+
 end

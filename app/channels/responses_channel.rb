@@ -1,5 +1,4 @@
-
-class ResponsesChannel < ApplicationCable::ResponsesChannel
+class ResponsesChannel < ApplicationCable::Channel
 
 
 	def subscribed
