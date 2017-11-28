@@ -1,14 +1,7 @@
-What is your favourite colour?,colours
-What continent is Italy located in?,geography
-Name an actor who played a part in any star wars film.,actors
-Name an action movie.,movies
-What type of food uses dried fish?,food
-What is a musical scale?,music
-What musical artist is well known for their dance moves?,musical_artist
-What is the difference between football and football?,sports
-What is the difference between a sports car and a super care?,cars
-What is the difference between a hedge-fund company and an investment company?,companies
-What is an Ivy League universty?,universities
-What is the difference between caps and hats?,clothes
-Explain the difference between JRPGs and RPGs.,video_games
-Compare and contrast series and tv shows.,tv
+# Entities to classify questions based on the key terms that are present (Lehnert Classifcation)
+@determination - starts or contains term "what"
+@cause_effect - starts or contains "why"
+@process_location - starts of contains "where"
+@specification - starts of contains "which"
+@time - starts of contains "when"
+@identification - starts or contains "who"
