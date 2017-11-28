@@ -2,14 +2,14 @@
 <div class="vertical-center">
 	<div id="waitingForPlayers" class="jumbotron jumbotron-fluid">
 		<div class="container">
-			<h1 class="display-3 text-center">Waiting for more players to join <%= @lobby.title %></h1>
-			<p class="lead text-center"> x / 4 players</p>
+			<h2 class="display-3 text-center">Waiting for more players to join <%= @lobby.title %></h2>
+			<p class="lead text-center"> <%= @lobby.spotsLeft %> / 4 players</p>
 		</div>
 	</div>
 
 	<div id="waitingForInput" class="jumbotron jumbotron-fluid">
 		<div class="container">
-			<h1 class="display-3 text-center">Please enter a response</h1>
+			<h2 class="display-3 text-center">Please enter a response</h2>
 			<div class="form-group">
 			<!-- above does not render  -->
 				<div id="response" aria-describedby="userResponse">
