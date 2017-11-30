@@ -12,10 +12,9 @@
 //
 // app/assets/javascripts/application.js
 //
-//= require cable
 //= require jquery
 //= require jquery_ujs
-//= require rails-ujs
 //= require turbolinks
+//= require cable
 //= require bootstrap-sprockets
 //= require_tree ./channels
