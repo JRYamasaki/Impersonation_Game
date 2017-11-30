@@ -7,7 +7,7 @@ App.responses = App.cable.subscriptions.create('ResponsesChannel', {
 		//return $('#response_box_' + data.user).append(this.renderResponse(data));
 		counter = counter+1;
 		$("#response_box_" + counter).removeClass('hidden')
-		return $('#response_box_' + counter).append(this.renderResponse(data));
+		return $('#response_box_' + counter + '_' + data.lobby_id).append(this.renderResponse(data));
 	},
 	renderResponse: function(data) {
 		return "<p> <b>" + data.user + ": </b>" + data.response + "</p>";
