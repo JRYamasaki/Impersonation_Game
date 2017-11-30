@@ -28,6 +28,7 @@ class LobbyController < ApplicationController
   end
 
   def lobby
+    @current_user = User.where(:id => session[:user_id]).first
     @lobby = Lobby.includes(:responses).find_by(id: params[:id]);
     # @lobby = Lobby.find_by(id: params[:id]);
     @response = Response.new

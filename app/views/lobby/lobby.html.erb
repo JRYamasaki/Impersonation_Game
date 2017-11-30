@@ -1,3 +1,12 @@
+<head>
+  <script type="text/javascript">
+    function hideRequest() {
+      var div = document.getElementById("response");
+      div.style.visibility = 'hidden';
+    }
+  </script>
+</head>
+
 
 <div class="vertical-center">
 	<div id="waitingForPlayers" class="jumbotron jumbotron-fluid">
@@ -23,6 +32,10 @@
 
 
 
+				</div>
+				<div id="response_box_<%= @current_user.username %>" class="responseBox">
+				</div>
+				<div id="response_box" class="responseBox">
 				</div>
 			</div>
     			<!-- input type="response" class="form-control" id="response" aria-describedby="userResponse"> -->
