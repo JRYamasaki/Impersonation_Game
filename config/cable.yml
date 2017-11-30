@@ -6,6 +6,8 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  # url: redis://localhost:6379/1
+  url : redis://redistogo:4761696f0c4cd2f5c9534e5f9a7b88cd@grouper.redistogo.com:11810/
+
   # url: redis://localhost:3000
   channel_prefix: ImpersonationGame_production

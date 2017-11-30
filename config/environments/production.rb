@@ -10,6 +10,10 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
+  #redis stuff
+  config.web_socket_server_url = "wss://powerful-beyond-38598.herokuapp.com/cable" 
+  config.action_cable.allowed_request_origins = ['https://powerful-beyond-38598.herokuapp.com', 'http://powerful-beyond-38598.herokuapp.com']
+
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
