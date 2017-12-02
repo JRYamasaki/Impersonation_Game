@@ -20,6 +20,13 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+	def reset_user_current_lobby
+		current_user = User.where(:id => session[:user_id]).first
+		current_user.update(current_lobby: -1)
+	end
+		# skip_before_action :reset_user_current_lobby
+
+
         ### IBM Watson Conversation Service Agent Warppers
         #
         # There are two different wrappers that can be used to access the IBM Watson Conversation Service API:

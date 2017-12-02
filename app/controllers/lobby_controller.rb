@@ -1,5 +1,9 @@
 class LobbyController < ApplicationController
 
+  before_action :reset_user_current_lobby, :only => [:index, :new, :create, :show, ]
+
+
+
   def index
   	@lobbies = Lobby.all
   end
