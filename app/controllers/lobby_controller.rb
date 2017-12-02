@@ -34,11 +34,8 @@ class LobbyController < ApplicationController
   def lobby
     @current_user = User.where(:id => session[:user_id]).first
     @lobby = Lobby.includes(:responses).find_by(id: params[:id]);
-
     @current_user.update(current_lobby: @lobby.id)
-
     @lobby.update_attribute(:spotsLeft, @lobby.spotsLeft + 1);
-
     # @lobby = Lobby.find_by(id: params[:id]);
     @response = Response.new
     @lobby_users = User.where(current_lobby: @lobby.id)
