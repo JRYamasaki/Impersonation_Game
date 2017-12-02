@@ -30,14 +30,22 @@ class LobbyController < ApplicationController
   def lobby
     @current_user = User.where(:id => session[:user_id]).first
     @lobby = Lobby.includes(:responses).find_by(id: params[:id]);
+
     @current_user.update(current_lobby: @lobby.id)
+
+    @lobby.update_attribute(:spotsLeft, @lobby.spotsLeft + 1);
+
     # @lobby = Lobby.find_by(id: params[:id]);
     @response = Response.new
     @lobby_users = User.where(current_lobby: @lobby.id)
-    @lobby_users.blank?
     # User.where(:username => "Paul").includes(:domains).where("domains.name" => "paul-domain").limit(1)
      #:page => params[:page], :per_page => 50
     # Client.where(first_name: 'Lifo').take
+  end
+
+  def decrement_user_count
+    @lobby = Lobby.find_by(id: params[:id]);
+    Lobby.decrement_counter(:spotsLeft, @lobby.id);
   end
 
   private

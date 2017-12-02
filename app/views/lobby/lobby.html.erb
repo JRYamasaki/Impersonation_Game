@@ -75,11 +75,18 @@
 	</div>
 </div>
 
+<%= hidden_field_tag :current_id, params[:id] %>
+
 <script>
 	$(function() {
+		$(window).on("beforeunload", function(e) {
+			$.ajax({
+				url: "/lobby/decrement_user_count/" + $('#current_id').val()
+			})
+		})
+
 		$("#waitingForInput").hide(0);
 		$("#waitingForPlayers").delay(1000).slideUp(1500);
 		$("#waitingForInput").delay(3000).slideToggle(1000);
 	});
-
 </script>

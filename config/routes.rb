@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post 'lobby/create'
   get 'lobby' => 'lobby#index'
   get 'lobby/lobby'
+  get 'lobby/decrement_user_count/:id', to: "lobby#decrement_user_count"
   
   root 'mainpage#mainpage'
  
