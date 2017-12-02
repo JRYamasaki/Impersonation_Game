@@ -12,6 +12,7 @@ class UserController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    # @user.score = Score.new
 
     respond_to do |format|
       if @user.save

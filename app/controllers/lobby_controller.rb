@@ -30,8 +30,14 @@ class LobbyController < ApplicationController
   def lobby
     @current_user = User.where(:id => session[:user_id]).first
     @lobby = Lobby.includes(:responses).find_by(id: params[:id]);
+    @current_user.update(current_lobby: @lobby.id)
     # @lobby = Lobby.find_by(id: params[:id]);
     @response = Response.new
+    @lobby_users = User.where(current_lobby: @lobby.id)
+    @lobby_users.blank?
+    # User.where(:username => "Paul").includes(:domains).where("domains.name" => "paul-domain").limit(1)
+     #:page => params[:page], :per_page => 50
+    # Client.where(first_name: 'Lifo').take
   end
 
   private

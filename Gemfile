@@ -12,6 +12,9 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'watson-api-client', '~> 0.0.8'
 gem 'watson-conversation'
+
+# gem for using outdated rails commands
+gem 'record_tag_helper', '~> 1.0'
 #gem 'artemis-bot'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'

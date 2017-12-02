@@ -9,6 +9,8 @@ class User < ApplicationRecord
   validates :password, presence: true
 
 
+## GIVES ME BUGS, CONFIRM WITH RICKY THAT THIS WORKS.
+
   after_create :create_scores
 
   def create_scores

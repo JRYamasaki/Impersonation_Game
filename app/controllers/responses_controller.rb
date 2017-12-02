@@ -8,6 +8,7 @@ class ResponsesController < ApplicationController
 	def create
 		response = Response.new(response_params)
 		current_user = User.where(:id => session[:user_id]).first
+		# current_user.score = Score.new
 		response.user = current_user
 		if response.save
 			#add to response list for current round?

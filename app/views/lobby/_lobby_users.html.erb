@@ -1,0 +1,29 @@
+SCOREBOARD:
+
+<tr>
+	<td> Name  |   </td>
+	<td> |  wins  | </td>
+	<td> |  correct guesses  |   </td>
+	<td> |  wrong guesses   </td>
+</tr>
+
+<%= div_for(@lobby_users) do |f| %>
+<tr>
+	<%# f.score = Score.new %>
+	 <td>  <%=  f.username%></td>
+     <td> <%= f.score.wins %></td>
+     <td> <%= f.score.correctGuess %></td>
+     <td> <%= f.score.incorrectGuess %></td>
+
+ </tr>
+<% end %> 	
+
+
+<!-- create_table "scores", force: :cascade do |t|
+    t.integer "wins"
+    t.integer "correctGuess"
+    t.integer "incorrectGuess"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.string "username" -->
