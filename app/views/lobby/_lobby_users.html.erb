@@ -1,29 +1,38 @@
-SCOREBOARD:
+
+
+<style>
+table {
+  border-collapse: separate;
+  border-spacing: 50px 0;
+}
+
+td {
+  padding: 10px 0;
+}
+</style>
+
+
+<h4> Scoreboard: </h4>
 
 <tr>
-	<td> Name  |   </td>
-	<td> |  wins  | </td>
-	<td> |  correct guesses  |   </td>
-	<td> |  wrong guesses   </td>
+	<td> Username     </td>
+	<td>   Wins   </td>
+	<td>   Correct guesses    </td>
+	<td>   Wrong guesses   </td>
 </tr>
 
-<%= div_for(@lobby_users) do |f| %>
-<tr>
-	<%# f.score = Score.new %>
-	 <td>  <%=  f.username%></td>
-     <td> <%= f.score.wins %></td>
-     <td> <%= f.score.correctGuess %></td>
-     <td> <%= f.score.incorrectGuess %></td>
 
- </tr>
-<% end %> 	
+ <%#loop do %>
+    <%= div_for(@lobby_users) do |f| %>
+    <tr align="center">
+    	<%# f.score = Score.new %>
+    	 <td>  <%=  f.username%></td>
+         <td> <%= f.score.wins %></td>
+         <td> <%= f.score.correctGuess %></td>
+         <td> <%= f.score.incorrectGuess %></td>
 
+     </tr>
+    <% end %> 	
 
-<!-- create_table "scores", force: :cascade do |t|
-    t.integer "wins"
-    t.integer "correctGuess"
-    t.integer "incorrectGuess"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.string "username" -->
+<%#end%>
+

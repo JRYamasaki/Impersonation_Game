@@ -10,6 +10,7 @@ App.responses = App.cable.subscriptions.create('ResponsesChannel', {
 		return $('#response_box_' + counter + '_' + data.lobby_id).append(this.renderResponse(data));
 	},
 	renderResponse: function(data) {
-		return "<p> <b>" + data.user + ": </b>" + data.response + "</p>";
+		// return "<p> <b>" + data.user + ": </b>" + data.response + "</p>";
+		return "<p> <b>" + "Response " + counter + ": </b>" + "<button>" + data.response +  "</button>" + "</p>";
 	}
 });

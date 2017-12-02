@@ -29,7 +29,6 @@ class AccessController < ApplicationController
 
 	def logout
 		session[:user_id] = nil
-		
 		flash.now.notice = "Logged out successfully"
 		redirect_to('/access/login')
 	end
