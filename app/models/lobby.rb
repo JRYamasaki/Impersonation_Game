@@ -5,6 +5,6 @@ class Lobby < ApplicationRecord
   after_initialize :init
 
   def init
-  	self.spotsLeft ||=1
+  	self.spotsLeft ||=0
   end
 end
