@@ -33,6 +33,16 @@ class UserController < ApplicationController
     end
   end
 
+    def purge_db
+    session[:user_id] = nil
+    Lobby.find_each(&:destroy)
+    User.find_each(&:destroy)
+    Score.find_each(&:destroy)
+    Response.find_each(&:destroy)
+    redirect_to('/access/login')
+  end
+
+
   private
     def user_params
       params.require(:user).permit(:username, :email, :password)

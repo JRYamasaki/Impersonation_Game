@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   get 'user/registration'
   get 'user/users'
   get 'registration' => 'user#new'
+  get 'user/purge_db'
 
   get 'access/login'
   post 'access/attempt_login'
