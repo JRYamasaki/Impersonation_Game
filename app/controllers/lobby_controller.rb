@@ -30,8 +30,14 @@ class LobbyController < ApplicationController
   def lobby
     @current_user = User.where(:id => session[:user_id]).first
     @lobby = Lobby.includes(:responses).find_by(id: params[:id]);
+    @lobby.update_attribute(:spotsLeft, @lobby.spotsLeft + 1);
     # @lobby = Lobby.find_by(id: params[:id]);
     @response = Response.new
+  end
+
+  def decrement_user_count
+    @lobby = Lobby.find_by(id: params[:id]);
+    Lobby.decrement_counter(:spotsLeft, @lobby.id);
   end
 
   private
