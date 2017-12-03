@@ -12,7 +12,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'watson-api-client', '~> 0.0.8'
 gem 'watson-conversation'
-
+gem 'ruby-cleverbot-api'
 
 # gem for using outdated rails commands
 gem 'record_tag_helper', '~> 1.0'
