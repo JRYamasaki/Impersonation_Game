@@ -14,12 +14,10 @@
 		    </div>
 		    <div class="collapse navbar-collapse" id="myNavbar">
 			    <ul class="nav navbar-nav">
-			        <li><a href="/mainpage/mainpage">Home</a></li>
-			        <li><a href="#">About</a></li>
-			        <li><a href="/mainpage/adminmainpage">Admin Page</a></li>
+			        <li id="Home"><a href="/mainpage/mainpage">Home</a></li>
 			    </ul>
 			    <ul class="nav navbar-nav navbar-right">
-			    	<li><%= link_to("Logout",access_logout_path) %></li>
+			    	<li id="Logout"><%= link_to("Logout",access_logout_path) %></li>
 			    </ul>
 		    </div>
 	  	</div>
@@ -107,13 +105,25 @@
 		var playerCountInLobby = $('#current_player_count').val();
 
 		$(window).on("beforeunload", function(e) {
-			$.ajax({
-				url: "/lobby/decrement_user_count/" + $('#current_id').val()
-			})
+			decrementPlayerCount();
+		})
+
+		$("#Logout").click(function() {
+			decrementPlayerCount();
+		})
+
+		$("#Home").click(function() {
+			decrementPlayerCount();
 		})
 
 		$("#waitingForInput").hide(0);
 		waitForPlayers();
+
+		function decrementPlayerCount() {
+			$.ajax({
+				url: "/lobby/decrement_user_count/" + $('#current_id').val()
+			})
+		}
 
 		function waitForPlayers() {
 			if(playerCountInLobby == 4)
