@@ -44,6 +44,16 @@ class LobbyController < ApplicationController
     # Client.where(first_name: 'Lifo').take
   end
 
+  def update_player_count
+    @lobby = Lobby.includes(:responses).find_by(id: params[:id]);
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @lobby }
+    end 
+    #@lobby.update_attribute(session[:pCount], @lobby.spotsLeft);
+  end
+
   def decrement_user_count
     @lobby = Lobby.find_by(id: params[:id]);
     Lobby.decrement_counter(:spotsLeft, @lobby.id);
