@@ -1,7 +1,30 @@
+# Main question types
+@open_ended
+@close_ended
+
 # Entities to classify questions based on the key terms that are present (Lehnert Classifcation)
-@determination - starts or contains term "what"
-@cause_effect - starts or contains "why"
-@process_location - starts of contains "where"
-@specification - starts of contains "which"
-@time - starts of contains "when"
-@identification - starts or contains "who"
+@determination - starts with or contains term "what"
+@cause_effect - starts with or contains "why"
+@process_location - starts with of contains "where"
+@specification - starts with of contains "which"
+@time - starts with or contains "when"
+@identification - starts with or contains "who"
+@explanation - starts with or contatins term "how"
+
+# Entitiy classification using question purpose detection
+@factual - used to get additional information, can start with or contain "what", "when", "why", "who", "how"
+@explanatory - used to get reasons, explaations, e.g., "what other ..."
+@justify_probe - used to get reasoning and proof, e.g., "Why do you think ..."
+@leading -  introduce or advance semantic contens e.g., "Should we/you ..."
+@hypothetical - used to infer something; starts or contains the term "if", "suppose" other inferential terms
+@decisional - used to make decisions, e.g., "what is the best ...", contains a qualifier for nouns
+
+# Entities for the first word at the beginning of the question
+@whatq
+@ifq
+@whenq
+@whereq
+@haveq
+@howq
+@whoq
+@whyq
