@@ -1,3 +1,20 @@
+<nav class="navbar navbar-inverse">
+	  	<div class="container-fluid">
+		    <div class="navbar-header">
+		    	<a class="navbar-brand">Impersonation Game</a>
+		    </div>
+		    <div class="collapse navbar-collapse" id="myNavbar">
+			    <ul class="nav navbar-nav">
+			        <li><a href="/mainpage/mainpage">Home</a></li>
+			        <li><a href="/mainpage/adminmainpage">Admin Page</a></li>
+			    </ul>
+			    <ul class="nav navbar-nav navbar-right">
+			    	<li><%= link_to("Logout",access_logout_path) %></li>
+			    </ul>
+		    </div>
+	  	</div>
+</nav>
+
 <h2>All Lobbies</h2>
 
 <table class="table">
