@@ -39,6 +39,34 @@ class LobbyController < ApplicationController
     # @lobby = Lobby.find_by(id: params[:id]);
     @response = Response.new
     @lobby_users = User.where(current_lobby: @lobby.id)
+    render('lobby/lobby')
+    
+
+
+   
+   require 'watson/conversation'
+
+    manage = Watson::Conversation::ManageDialog.new(
+    username: "selfeki@sfu.ca",
+    password: "1mpersonationgam3",
+    workspace_id: "9275ca7a-e96a-41b6-a607-cbc405d071c8",
+    # Where to link the freely-selected user name with the conversation_id
+    storage: 'hash'  #means that you use Ruby hash. If you restart the app, the info will disappear.
+    # OR
+    # storage: 'redis://127.0.0.1:6379'  #means that you use exteranl database like redis(This gem currently supports redis only).
+  )
+
+    puts response1 =  manage.talk("user1", "") #Why should be replaced with actual question
+
+   # sleep 5
+   
+    # Response.create([{body: bot_reponse.output, user_id: @lobby.id, lobby_id: @lobby.id }])
+
+    #     t.text "body"
+    # t.bigint "user_id"
+    # t.bigint "lobby_id"
+
+
     # User.where(:username => "Paul").includes(:domains).where("domains.name" => "paul-domain").limit(1)
      #:page => params[:page], :per_page => 50
     # Client.where(first_name: 'Lifo').take

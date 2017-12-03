@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 	protect_from_forgery with: :exception
 	before_action :verify_login
 
+
 	private
 	def verify_login
 		if  session[:user_id] == nil
@@ -46,7 +47,9 @@ class ApplicationController < ActionController::Base
     # commented out for faster deployment
 
 # => UNCOMMENT START
-	# require 'watson/conversation'
+	
+
+	 # require 'watson/conversation'
 
 	# agent0 = Watson::Conversation::ManageDialog.new(
 	#   username: "selfeki@sfu.ca",
@@ -57,17 +60,20 @@ class ApplicationController < ActionController::Base
 	#   # OR
 	#   # storage: 'redis://127.0.0.1:6379'  #means that you use exteranl database like redis(This gem currently supports redis only).
 	# )
+      
+   
+
+	# agent1 = Watson::Conversation::ManageDialog.new(
+	#       username: "vaganune@reftoken.net",
+	#       password: "Astat@1379",
+	#       workspace_id: "1a5ff1af-bc7d-48e7-8207-3190f1729acd",
+	#       # Where to link the freely-selected user name with the conversation_id
+	#       storage: 'hash'  #means that you use Ruby hash. If you restart the app, the info will be disappeared.
+	#       # OR
+	#       # storage: 'redis://127.0.0.1:6379'  #means that you use exteranl database like redis(This gem currently supports redis only).
+	#         )
+# # => UNCOMMENT END
         
- #        agent1 = Watson::Conversation::ManageDialog.new(
- #          username: "vaganune@reftoken.net",
- #          password: "Astat@1379",
- #          workspace_id: "1a5ff1af-bc7d-48e7-8207-3190f1729acd",
- #          # Where to link the freely-selected user name with the conversation_id
- #          storage: 'hash'  #means that you use Ruby hash. If you restart the app, the info will be disappeared.
- #          # OR
- #          # storage: 'redis://127.0.0.1:6379'  #means that you use exteranl database like redis(This gem currently supports redis only).
- #        )
-# => UNCOMMENT END
 
 
 
@@ -78,7 +84,6 @@ class ApplicationController < ActionController::Base
         #Chatbot responses and actions
         #
         # Until we determine what specific files will hold the agent responses we will place them here
-        #
 
         # For a given game, the questions will most likely be generated from a databse.
         # The easiest way to pass these questions to the watson conversation service therefore, we need to treat the question like a user-input question 
