@@ -1,5 +1,11 @@
 <head>
   <script type="text/javascript">
+
+    //var question_bank = ["What is your name?", "What do you eat?", "What's the weather like?", "Which toothpaste do you use?"]
+    question_bank = ["What is your name?"]
+    the_question = question_bank[Math.floor(Math.random() * question_bank.length)];
+
+
     function hideRequest() {
       var div = document.getElementById("response");
       div.style.visibility = 'hidden';
@@ -57,11 +63,12 @@
 		<div class="container">
 			<div class="form-group">
 			<!-- above does not render  -->
+      <h2 id="question_header" class="question_header display-3 text-center"></h2>
 				<div id="response" aria-describedby="userResponse">
           <h2 class="display-3 text-center">Please enter a response</h2>
 
 
-          <h2 class="question_header display-3 text-center">What are you?</h2>
+
 
 
 					<!-- Response form -->
@@ -108,7 +115,7 @@
         </div>
 
 
-        <button id="update_bot_button" onclick="sendBotResponse();">Update bot</button>
+        <button id="update_bot_button" onclick="sendBotResponse(the_question);">Update bot</button>
 
 			</div>
 
@@ -142,9 +149,11 @@
 <script>
   function sendBotResponse(qdata) {
     $("#update_bot_button").hide();
+    //window.alert(qdata);
     $.ajax({
       url: "/lobby/display_bot_message/" + $('#current_id').val(),
-      data: {questionAsked: qdata}
+      data: {questionAsked: qdata},
+      dataType:'json'
     })
   }
 
@@ -208,6 +217,7 @@
       $("#responses_container").hide();
     	$("#scoreBox").hide();
       shuffleBoxes();
+      document.getElementById("question_header").innerHTML = the_question;
       clearTimeout(timer);
     }
     else

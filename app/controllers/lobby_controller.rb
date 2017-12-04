@@ -46,11 +46,12 @@ class LobbyController < ApplicationController
 
   def display_bot_message
     @lobby = Lobby.includes(:responses).find_by(id: params[:id]);
+    questionAsked = params[:questionAsked]
 
     require 'ruby-cleverbot-api'
     cleverbot = Cleverbot.new('CC5q0w8xaWRMkuvtQ1UFMpsjyXQ')
 
-    bot_text  = cleverbot.send_message('What are you?')
+    bot_text  = cleverbot.send_message(questionAsked)
 
     ActionCable.server.broadcast "responses", response: bot_text, user: "bot", lobby_id: @lobby.id, is_bot: "yes", is_response: "1"
   end
