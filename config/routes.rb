@@ -20,8 +20,8 @@ Rails.application.routes.draw do
   get 'lobby/update_player_count/:id', to: "lobby#update_player_count"
 
   get 'lobby/display_bot_message/:id', to: 'lobby#display_bot_message'
-  get 'lobby/click_wrong_response', to: 'lobby#click_wrong_response'
-  get 'lobby/click_right_response', to: 'lobby#click_right_response'
+  get 'lobby/click_wrong_response/:id', to: 'lobby#click_wrong_response'
+  get 'lobby/click_right_response/:id', to: 'lobby#click_right_response'
 
   root 'mainpage#mainpage'
 

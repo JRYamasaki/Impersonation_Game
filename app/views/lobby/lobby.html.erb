@@ -113,7 +113,7 @@
 			</div>
 
       <div id = "scoreBox">
-        <table id = "tableScore">
+        <table id = "tableScore_<%= @lobby.id %>">
           <tr>
             <th>Users</th>
             <th>Correct Guesses</th>
@@ -124,7 +124,7 @@
 
       <br>
 
-			<div id="scoreboard">
+			<div id="scoreboard" style="visibility:hidden;">
         Sami's Scoreboard
   			<table>
   				<%= render 'lobby_users' , collection: @lobby_users %>
@@ -150,13 +150,13 @@
 
   function clickWrong() {
     $.ajax({
-      url: "/lobby/click_wrong_response/"
+      url: "/lobby/click_wrong_response/" + $('#current_id').val()
     })
   }
 
   function clickRight() {
     $.ajax({
-      url: "/lobby/click_right_response/"
+      url: "/lobby/click_right_response/" + $('#current_id').val()
     })
   }
 

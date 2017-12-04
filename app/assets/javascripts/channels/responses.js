@@ -57,8 +57,8 @@ App.responses = App.cable.subscriptions.create('ResponsesChannel', {
 			else {
 				wrongGuesses = wrongGuesses + 1;
 			}
-			$('#tableScore').removeClass('hidden')
-			$('#tableScore').append(this.renderScore(data));
+			$('#tableScore_' + data.lobby_id).removeClass('hidden')
+			$('#tableScore_' + data.lobby_id).append(this.renderScore(data));
 			correctGuesses = 0;
 			wrongGuesses = 0;
 			return;
@@ -70,7 +70,8 @@ App.responses = App.cable.subscriptions.create('ResponsesChannel', {
 		return "<p>" + data.response + "</p>";
 	},
 	renderBotResponse: function(data) {
-		return "<p> <b>Bot: </b>" + data.response + "</p>";
+		return "<p>" + data.response + "</p>";
+		//return "<p> <b>Bot: </b>" + data.response + "</p>";
 	},
 	renderScore: function(data) {
 		return "<tr> <td>" + data.user + "</td> <td>" + correctGuesses + "</td> <td>" + wrongGuesses + "</td> </tr>";

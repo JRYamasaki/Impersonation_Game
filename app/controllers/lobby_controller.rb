@@ -56,13 +56,15 @@ class LobbyController < ApplicationController
   end
 
   def click_wrong_response
+    @lobby = Lobby.includes(:responses).find_by(id: params[:id]);
     current_user = User.where(:id => session[:user_id]).first
-    ActionCable.server.broadcast "responses", is_response: "0", user: current_user.username, correct_guess: "0"
+    ActionCable.server.broadcast "responses", is_response: "0", user: current_user.username, correct_guess: "0", lobby_id: @lobby.id
   end
 
   def click_right_response
+    @lobby = Lobby.includes(:responses).find_by(id: params[:id]);
     current_user = User.where(:id => session[:user_id]).first
-    ActionCable.server.broadcast "responses", is_response: "0", user: current_user.username, correct_guess: "1"
+    ActionCable.server.broadcast "responses", is_response: "0", user: current_user.username, correct_guess: "1", lobby_id: @lobby.id
   end
 
   def update_player_count
