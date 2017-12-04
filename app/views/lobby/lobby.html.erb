@@ -157,5 +157,52 @@
 
 
 <script>
+  $(function() {
+  var timer;
+  var playerCountInLobby = $('#current_player_count').val();
 
+  $(window).on("beforeunload", function(e) {
+    decrementPlayerCount();
+  })
+
+  $("#Logout").click(function() {
+    decrementPlayerCount();
+  })
+
+  $("#Home").click(function() {
+    decrementPlayerCount();
+  })
+
+  $("#waitingForInput").hide(0);
+  waitForPlayers();
+
+  function decrementPlayerCount() {
+    $.ajax({
+      url: "/lobby/decrement_user_count/" + $('#current_id').val()
+    })
+  }
+
+  function waitForPlayers() {
+    if(playerCountInLobby == 4)
+    {
+      console.log($('#playerCount').val());
+      $("#waitingForPlayers").delay(1000).slideUp(1500);
+      $("#waitingForInput").delay(3000).slideToggle(1000);
+      clearTimeout(timer);
+    }
+    else
+    {
+      $.ajax({
+      url: "/lobby/update_player_count/" + $('#current_id').val(),
+      data: {format: 'json'},
+      datatype: "json",
+      success: function(data) {
+        playerCountInLobby = data.spotsLeft;
+      }
+      });
+      console.log(playerCountInLobby);
+      timer = setTimeout(waitForPlayers, 1000);
+    }
+  }
+});
 </script>
