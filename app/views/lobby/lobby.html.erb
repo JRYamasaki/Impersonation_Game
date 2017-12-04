@@ -9,6 +9,16 @@
       var div = document.getElementById("responses_container");
       div.style.visibility = 'hidden';
     }
+
+    function showWaiting() {
+      var div = document.getElementById("waiting_for_responses");
+      div.style.visibility = 'visible';
+    }
+
+    function showChoices() {
+      var div = document.getElementById("waiting_for_choices");
+      div.style.visibility = 'visible';
+    }
   </script>
 </head>
 
@@ -45,13 +55,14 @@
 
 	<div id="waitingForInput" class="jumbotron jumbotron-fluid">
 		<div class="container">
-			<h2 class="display-3 text-center">Please enter a response</h2>
 			<div class="form-group">
 			<!-- above does not render  -->
 				<div id="response" aria-describedby="userResponse">
+          <h2 class="display-3 text-center">Please enter a response</h2>
 
-					<!-- Successfully submitted responses: -->
-					<%= render partial: 'responses/responses', collection: @lobby.responses || "There are no responses"%>
+
+          <h2 class="question_header display-3 text-center">What are you?</h2>
+
 
 					<!-- Response form -->
 					<%= render partial: '/responses/response_form', locals: {response: @response, lobby: @lobby}%>
@@ -59,38 +70,45 @@
 
 
 				</div>
+        <div id="waiting_for_responses" style="visibility:hidden;">
+          <h2 class="display-3 text-center">Waiting for player responses...</h2>
+        </div>
 
 
         <div id = "responses_container">
-          <button class="response_button" onclick="clickWrong(); hideButtons();">
+          <button class="response_button" onclick="clickWrong(); hideButtons(); showChoices();">
     				<div id="response_box_1_<%= @lobby.id %>" class="responseBox">
     				</div>
           </button>
   				<br>
-          <button class="response_button" onclick="clickWrong(); hideButtons();">
+          <button class="response_button" onclick="clickWrong(); hideButtons(); showChoices();">
     				<div id="response_box_2_<%= @lobby.id %>" class="responseBox">
     				</div>
           </button>
   				<br>
-          <button class="response_button" onclick="clickWrong(); hideButtons();">
+          <button class="response_button" onclick="clickWrong(); hideButtons(); showChoices();">
     				<div id="response_box_3_<%= @lobby.id %>" class="responseBox">
     				</div>
           </button>
   				<br>
-          <button class="response_button" onclick="clickWrong(); hideButtons();">
+          <button class="response_button" onclick="clickWrong(); hideButtons(); showChoices();">
     				<div id="response_box_4_<%= @lobby.id %>" class="responseBox">
     				</div>
           </button>
   				<br>
-          <button class="response_button" onclick="clickRight(); hideButtons();">
+          <button class="response_button" onclick="clickRight(); hideButtons(); showChoices();">
             <div id="response_box_bot_<%= @lobby.id %>" class="responseBox">
     				</div>
           </button>
   				<br>
         </div>
 
+        <div id="waiting_for_choices" style="visibility:hidden;">
+          <h2 class="display-3 text-center">Waiting for player choices...</h2>
+        </div>
 
-        <button onclick="sendBotResponse()">Update bot</button>
+
+        <button id="update_bot_button" onclick="sendBotResponse();">Update bot</button>
 
 			</div>
 
@@ -114,19 +132,7 @@
   			<br />
 		  </div>
     			<!-- input type="response" class="form-control" id="response" aria-describedby="userResponse"> -->
-  			</div>
-  			Debugging tool: displays all attributes of current user
-  			<%= debug(@bot_response) %>
-			<%#= debug(@current_user) %>
-		</div>
-
-
-
-
-
-
-
-
+  	</div>
 	</div>
 </div>
 
@@ -134,9 +140,11 @@
 <%= hidden_field_tag :current_player_count, @lobby.spotsLeft %>
 
 <script>
-  function sendBotResponse() {
+  function sendBotResponse(qdata) {
+    $("#update_bot_button").hide();
     $.ajax({
-      url: "/lobby/display_bot_message/" + $('#current_id').val()
+      url: "/lobby/display_bot_message/" + $('#current_id').val(),
+      data: {questionAsked: qdata}
     })
   }
 

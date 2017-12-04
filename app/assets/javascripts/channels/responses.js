@@ -25,6 +25,8 @@ App.responses = App.cable.subscriptions.create('ResponsesChannel', {
 			if (counter >= 4)
 			{
 				$("#responses_container").show();
+				$("#waiting_for_responses").hide();
+				$("#response").hide();
 			}
 			if (data.is_bot == "no")
 			{
@@ -46,6 +48,8 @@ App.responses = App.cable.subscriptions.create('ResponsesChannel', {
 			if (buttonCounter >= 4)
 			{
 				$("#scoreBox").show();
+				$("#waiting_for_choices").hide();
+				$("#responses_container").hide();
 			}
 			if (data.correct_guess == 1) {
 				correctGuesses = correctGuesses + 1;
@@ -63,10 +67,10 @@ App.responses = App.cable.subscriptions.create('ResponsesChannel', {
 	},
 	renderResponse: function(data) {
 		// return "<p> <b>" + data.user + ": </b>" + data.response + "</p>";
-		return "<p> <b>" + "Response " + counter + ": </b>" + data.response + "</p>";
+		return "<p>" + data.response + "</p>";
 	},
 	renderBotResponse: function(data) {
-		return "<p> <b>" + "Bot Response " + counter + ": </b>" + data.response + "</p>";
+		return "<p> <b>Bot: </b>" + data.response + "</p>";
 	},
 	renderScore: function(data) {
 		return "<tr> <td>" + data.user + "</td> <td>" + correctGuesses + "</td> <td>" + wrongGuesses + "</td> </tr>";
