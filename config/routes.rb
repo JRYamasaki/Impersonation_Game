@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :responses
- 
+
   # post 'lobby/show/:id' => 'response#create'
   # resources :lobbies, only: [:new, :create, :show, :index]
 
@@ -18,12 +18,16 @@ Rails.application.routes.draw do
   get 'lobby/lobby'
   get 'lobby/decrement_user_count/:id', to: "lobby#decrement_user_count"
   get 'lobby/update_player_count/:id', to: "lobby#update_player_count"
-  
+
+  get 'lobby/display_bot_message/:id', to: 'lobby#display_bot_message'
+  get 'lobby/click_wrong_response', to: 'lobby#click_wrong_response'
+  get 'lobby/click_right_response', to: 'lobby#click_right_response'
+
   root 'mainpage#mainpage'
- 
+
   get 'mainpage/mainpage'
   get 'mainpage/adminmainpage'
-  
+
   get '/user' => 'user#index'
   post '/users' => 'user#create'
   get '/users' => 'user#users'

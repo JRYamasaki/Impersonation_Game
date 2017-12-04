@@ -40,15 +40,28 @@ class LobbyController < ApplicationController
     @response = Response.new
     @lobby_users = User.where(current_lobby: @lobby.id)
     render('lobby/lobby')
-    
+
 
     require 'ruby-cleverbot-api'
     cleverbot = Cleverbot.new('CC5q0w8xaWRMkuvtQ1UFMpsjyXQ')
 
-    bot_text  = cleverbot.send_message('Hello bot')
-   
-    @bot_response = Response.create([{body: bot_text, user_id: @lobby.id, lobby_id: @lobby.id }])
-    
+    @bot_text  = cleverbot.send_message('Hello bot')
+
+  end
+
+  def display_bot_message
+    @lobby = Lobby.includes(:responses).find_by(id: params[:id]);
+    ActionCable.server.broadcast "responses", response: "bot text here", user: "bot", lobby_id: @lobby.id, is_bot: "yes", is_response: "1"
+  end
+
+  def click_wrong_response
+    current_user = User.where(:id => session[:user_id]).first
+    ActionCable.server.broadcast "responses", is_response: "0", user: current_user.username, correct_guess: "0"
+  end
+
+  def click_right_response
+    current_user = User.where(:id => session[:user_id]).first
+    ActionCable.server.broadcast "responses", is_response: "0", user: current_user.username, correct_guess: "1"
   end
 
   def update_player_count
@@ -57,7 +70,7 @@ class LobbyController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: @lobby }
-    end 
+    end
     #@lobby.update_attribute(session[:pCount], @lobby.spotsLeft);
   end
 

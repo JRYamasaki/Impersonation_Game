@@ -11,7 +11,7 @@ class ResponsesController < ApplicationController
 		response.user = current_user
 		if response.save
 			#add to response list for current round?
-			ActionCable.server.broadcast "responses", response: response.body, user: response.user.username, lobby_id: response.lobby.id
+			ActionCable.server.broadcast "responses", response: response.body, user: response.user.username, lobby_id: response.lobby.id, is_bot: "no", is_response: "1"
 			head :ok
 		else
 			render 'lobby/lobby'

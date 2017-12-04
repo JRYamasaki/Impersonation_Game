@@ -4,6 +4,11 @@
       var div = document.getElementById("response");
       div.style.visibility = 'hidden';
     }
+
+    function hideButtons() {
+      var div = document.getElementById("responses_container");
+      div.style.visibility = 'hidden';
+    }
   </script>
 </head>
 
@@ -53,40 +58,71 @@
 
 
 
-
 				</div>
 
-				<div id="response_box_<%= @current_user.username %>" class="responseBox">
-				</div>
-				<br>
-				<div id="response_box_1_<%= @lobby.id %>" class="responseBox">
-				</div>
-				<br>
-				<div id="response_box_2_<%= @lobby.id %>" class="responseBox">
-				</div>
-				<br>
-				<div id="response_box_3_<%= @lobby.id %>" class="responseBox">
-				</div>
-				<br>
-				<div id="response_box_4_<%= @lobby.id %>" class="responseBox">
-				</div>
-				<br>
+
+        <div id = "responses_container">
+  				<div id="response_box_<%= @current_user.username %>" class="responseBox">
+  				</div>
+  				<br>
+          <button onclick="clickWrong(); hideButtons();">
+    				<div id="response_box_1_<%= @lobby.id %>" class="responseBox">
+    				</div>
+          </button>
+  				<br>
+          <button onclick="clickWrong(); hideButtons();">
+    				<div id="response_box_2_<%= @lobby.id %>" class="responseBox">
+    				</div>
+          </button>
+  				<br>
+          <button onclick="clickWrong(); hideButtons();">
+    				<div id="response_box_3_<%= @lobby.id %>" class="responseBox">
+    				</div>
+          </button>
+  				<br>
+          <button onclick="clickWrong(); hideButtons();">
+    				<div id="response_box_4_<%= @lobby.id %>" class="responseBox">
+    				</div>
+          </button>
+  				<br>
+          <button onclick="clickRight(); hideButtons();">
+            <div id="response_box_bot_<%= @lobby.id %>" class="responseBox">
+    				</div>
+          </button>
+  				<br>
+        </div>
+
+        <button onclick="sendBotResponse()">Update bot</button>
 
 			</div>
-			
 
-					<div id="scoreboard">
-			<table>
-				<%= render 'lobby_users' , collection: @lobby_users %>
-			</table>
-			<br />
-		</div>
+      <div id = "scoreBox">
+        <table id = "tableScore">
+          <tr>
+            <th>Users</th>
+            <th>Correct Guesses</th>
+            <th>Incorrect Guesses</th>
+          </tr>
+        </table>
+      </div>
+
+      <br>
+
+			<div id="scoreboard">
+        Sami's Scoreboard
+  			<table>
+  				<%= render 'lobby_users' , collection: @lobby_users %>
+  			</table>
+  			<br />
+		  </div>
     			<!-- input type="response" class="form-control" id="response" aria-describedby="userResponse"> -->
   			</div>
   			Debugging tool: displays all attributes of current user
   			<%= debug(@bot_response) %>
 			<%#= debug(@current_user) %>
 		</div>
+
+
 
 
 
@@ -100,52 +136,26 @@
 <%= hidden_field_tag :current_player_count, @lobby.spotsLeft %>
 
 <script>
-	$(function() {
-		var timer;
-		var playerCountInLobby = $('#current_player_count').val();
+  function sendBotResponse() {
+    $.ajax({
+      url: "/lobby/display_bot_message/" + $('#current_id').val()
+    })
+  }
 
-		$(window).on("beforeunload", function(e) {
-			decrementPlayerCount();
-		})
+  function clickWrong() {
+    $.ajax({
+      url: "/lobby/click_wrong_response/"
+    })
+  }
 
-		$("#Logout").click(function() {
-			decrementPlayerCount();
-		})
+  function clickRight() {
+    $.ajax({
+      url: "/lobby/click_right_response/"
+    })
+  }
+</script>
 
-		$("#Home").click(function() {
-			decrementPlayerCount();
-		})
 
-		$("#waitingForInput").hide(0);
-		waitForPlayers();
+<script>
 
-		function decrementPlayerCount() {
-			$.ajax({
-				url: "/lobby/decrement_user_count/" + $('#current_id').val()
-			})
-		}
-
-		function waitForPlayers() {
-			if(playerCountInLobby == 4)
-			{
-				console.log($('#playerCount').val());
-				$("#waitingForPlayers").delay(1000).slideUp(1500);
-				$("#waitingForInput").delay(3000).slideToggle(1000);
-				clearTimeout(timer);
-			}
-			else
-			{
-				$.ajax({
-				url: "/lobby/update_player_count/" + $('#current_id').val(),
-				data: {format: 'json'},
-				datatype: "json",
-				success: function(data) {
-					playerCountInLobby = data.spotsLeft;
-				}
-				});
-				console.log(playerCountInLobby);
-				timer = setTimeout(waitForPlayers, 1000);
-			}
-		}
-	});
 </script>
