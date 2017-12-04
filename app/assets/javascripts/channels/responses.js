@@ -7,6 +7,7 @@ var wrongGuesses = 0;
 $(document).ready(function() {
 	$("#responses_container").hide();
 	$("#scoreBox").hide();
+	shuffleBoxes();
 	//sendBotResponse();
 });
 
@@ -18,8 +19,10 @@ App.responses = App.cable.subscriptions.create('ResponsesChannel', {
 			//$("#responses_container").hide();
 			//$("#response").hide(); // Hides the response box, but for all users in lobby
 			//return $('#response_box_' + data.user).append(this.renderResponse(data));
-			counter = counter+1;
-			if (counter >= 5)
+			if (data.is_bot == "no") {
+				counter = counter+1;
+			}
+			if (counter >= 4)
 			{
 				$("#responses_container").show();
 			}
@@ -51,7 +54,10 @@ App.responses = App.cable.subscriptions.create('ResponsesChannel', {
 				wrongGuesses = wrongGuesses + 1;
 			}
 			$('#tableScore').removeClass('hidden')
-			return $('#tableScore').append(this.renderScore(data));
+			$('#tableScore').append(this.renderScore(data));
+			correctGuesses = 0;
+			wrongGuesses = 0;
+			return;
 
 		}
 	},

@@ -62,35 +62,33 @@
 
 
         <div id = "responses_container">
-  				<div id="response_box_<%= @current_user.username %>" class="responseBox">
-  				</div>
-  				<br>
-          <button onclick="clickWrong(); hideButtons();">
+          <button class="response_button" onclick="clickWrong(); hideButtons();">
     				<div id="response_box_1_<%= @lobby.id %>" class="responseBox">
     				</div>
           </button>
   				<br>
-          <button onclick="clickWrong(); hideButtons();">
+          <button class="response_button" onclick="clickWrong(); hideButtons();">
     				<div id="response_box_2_<%= @lobby.id %>" class="responseBox">
     				</div>
           </button>
   				<br>
-          <button onclick="clickWrong(); hideButtons();">
+          <button class="response_button" onclick="clickWrong(); hideButtons();">
     				<div id="response_box_3_<%= @lobby.id %>" class="responseBox">
     				</div>
           </button>
   				<br>
-          <button onclick="clickWrong(); hideButtons();">
+          <button class="response_button" onclick="clickWrong(); hideButtons();">
     				<div id="response_box_4_<%= @lobby.id %>" class="responseBox">
     				</div>
           </button>
   				<br>
-          <button onclick="clickRight(); hideButtons();">
+          <button class="response_button" onclick="clickRight(); hideButtons();">
             <div id="response_box_bot_<%= @lobby.id %>" class="responseBox">
     				</div>
           </button>
   				<br>
         </div>
+
 
         <button onclick="sendBotResponse()">Update bot</button>
 
@@ -153,6 +151,17 @@
       url: "/lobby/click_right_response/"
     })
   }
+
+  function shuffleBoxes() {
+    var buttons = $(".response_button");
+    for (var i = 0; i < 50; i++) {
+      for(var j = 0; j < buttons.length; j++){
+          var target = Math.floor(Math.random() * buttons.length -1) + 1;
+          var target2 = Math.floor(Math.random() * buttons.length -1) +1;
+          buttons.eq(target).insertBefore(buttons.eq(target2));
+      }
+    }
+  }
 </script>
 
 
@@ -183,11 +192,14 @@
   }
 
   function waitForPlayers() {
-    if(playerCountInLobby == 4)
+    if(playerCountInLobby >= 4)
     {
       console.log($('#playerCount').val());
       $("#waitingForPlayers").delay(1000).slideUp(1500);
       $("#waitingForInput").delay(3000).slideToggle(1000);
+      $("#responses_container").hide();
+    	$("#scoreBox").hide();
+      shuffleBoxes();
       clearTimeout(timer);
     }
     else
